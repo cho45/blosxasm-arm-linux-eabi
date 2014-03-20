@@ -1,0 +1,25 @@
+                </div>
+            </div>
+            <footer>
+                environ=0x#{environ}
+            </footer>
+        </div>
+        <script>
+            var els = document.querySelectorAll('time');
+            for (var i = 0, it; (it = els[i]); i++) {
+                var epoch = +it.getAttribute('data-epoch');
+                var date = new Date(epoch * 1000);
+                var string = [
+                    date.getFullYear(),
+                    String(date.getMonth() + 101).slice(1),
+                    String(date.getDate() + 100).slice(1)
+                ].join('-') + ' ' + [
+                    String(date.getHours() + 100).slice(1),
+                    String(date.getMinutes() + 100).slice(1),
+                    String(date.getSeconds() + 100).slice(1)
+                ].join(':')
+                it.appendChild(document.createTextNode(string));
+            }
+        </script>
+    </body>
+</html>
